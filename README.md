@@ -74,6 +74,48 @@ const Route = require("react-router-dom").Route;
 const Link = require("react-router-dom").Link;
 ```
 
+### useRouteMatch
+```
+import { useRouteMatch } from 'react-router-dom'
+
+function App() {
+  const {path, url} = useRouteMatch();
+
+  return (
+    <li>
+      <Link to = {`${url}/employee-details`></Link>
+    </li>
+
+    <Switch>
+        <Route path = {`${path}/employee-details`}>
+        <employee-details/>
+        </Route>
+        </Switch>
+
+  )
+}
+```
+### useParams
+```
+import React from "react";
+import { useParams } from "react-router-dom";
+function App() {
+  const params = useParams();
+```
+### useHistory 
+```
+import { useHistory } from 'react-router-dom'
+
+function BackButton({ children }) {
+  let history = useHistory()
+  return (
+    <button type="button" onClick={() => history.goBack()}>
+      {children}
+    </button>
+  )
+}
+```
+
 ## [react-universal-hooks](https://www.npmjs.com/package/react-universal-hooks)
 
 ```
@@ -118,3 +160,28 @@ import styled from 'styled-components'
 
 ## [eslint](https://www.npmjs.com/package/eslint)
 ## [prettier](https://www.npmjs.com/package/prettier)
+
+## [yup](https://www.npmjs.com/package/yup)
+https://github.com/jquense/yup
+```
+import * as yup from 'yup';
+```
+```
+let yup = require('yup');
+
+yup.mixed;
+yup.string;
+yup.number;
+yup.boolean; // also aliased as yup.bool
+yup.date;
+yup.object;
+yup.array;
+
+yup.reach;
+yup.addMethod;
+yup.ref;
+yup.lazy;
+yup.setLocale;
+yup.ValidationError;
+```
+## Next
