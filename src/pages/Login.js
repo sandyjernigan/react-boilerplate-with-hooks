@@ -1,4 +1,5 @@
 import React from "react";
+import * as Yup from "yup";
 
   // Basic submit event handler and console.log to confirm form submitted
   const formSubmit = e => {
@@ -12,6 +13,29 @@ import React from "react";
     email: "",
     website: "",
     password: ""
+  });
+
+  // State for the error messages
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+    terms: ""
+  });
+
+  // Validating with Yup
+  const formSchema = Yup.object().shape({
+    email: Yup
+      .string()
+      .email("Must be a valid email address.")
+      .required("Must include email address."),
+    password: Yup
+      .string()
+      .required("Password is Required")
+      .min(6, "Passwords must be at least 6 characters long."),
+    terms: Yup
+      .boolean()
+      .oneOf([true], "You must accept Terms and Conditions")
+      // required isn't required for checkboxes.
   });
 
 // Define form elements: email, password and terms/conditions
